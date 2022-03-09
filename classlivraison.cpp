@@ -1,6 +1,7 @@
 #include "classlivraison.h"
 #include <QSqlDatabase>
 #include <QSqlError>
+#include <QSqlQueryModel>
 #include <QSqlQuery>
 
 Classlivraison::Classlivraison(int cin,QString nomLivreur,QString adresse,int telLivreur,QString diplome){

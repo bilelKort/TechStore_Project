@@ -490,10 +490,10 @@ QScrollBar::sub-page:vertical
     <widget class="QPushButton" name="Mapbtn">
      <property name="geometry">
       <rect>
-       <x>520</x>
-       <y>390</y>
-       <width>200</width>
-       <height>50</height>
+       <x>640</x>
+       <y>340</y>
+       <width>150</width>
+       <height>40</height>
       </rect>
      </property>
      <property name="text">
@@ -503,10 +503,10 @@ QScrollBar::sub-page:vertical
     <widget class="QPushButton" name="ajouterbtn">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>640</x>
        <y>190</y>
-       <width>460</width>
-       <height>50</height>
+       <width>150</width>
+       <height>40</height>
       </rect>
      </property>
      <property name="text">
@@ -540,10 +540,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="tribtn">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>640</x>
        <y>390</y>
-       <width>200</width>
-       <height>50</height>
+       <width>150</width>
+       <height>40</height>
       </rect>
      </property>
      <property name="text">
@@ -553,10 +553,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="quitter">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>570</y>
-       <width>460</width>
-       <height>50</height>
+       <x>640</x>
+       <y>590</y>
+       <width>150</width>
+       <height>40</height>
       </rect>
      </property>
      <property name="text">
@@ -566,41 +566,23 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="paymentbtn">
      <property name="geometry">
       <rect>
-       <x>450</x>
-       <y>470</y>
-       <width>200</width>
-       <height>50</height>
+       <x>640</x>
+       <y>490</y>
+       <width>150</width>
+       <height>40</height>
       </rect>
      </property>
      <property name="text">
       <string>Payment</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="consulterbtn">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>130</y>
-       <width>460</width>
-       <height>50</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#QPushButton{
-	background-color:black;
-}</string>
-     </property>
-     <property name="text">
-      <string>Consulter Livraison</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="statbtn">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>470</y>
-       <width>200</width>
-       <height>50</height>
+       <x>640</x>
+       <y>540</y>
+       <width>150</width>
+       <height>40</height>
       </rect>
      </property>
      <property name="text">
@@ -610,10 +592,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="chercherbtn">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>390</y>
-       <width>200</width>
-       <height>50</height>
+       <x>640</x>
+       <y>440</y>
+       <width>150</width>
+       <height>40</height>
       </rect>
      </property>
      <property name="text">
@@ -623,10 +605,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="supprimerbtn">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>320</y>
-       <width>460</width>
-       <height>50</height>
+       <x>640</x>
+       <y>290</y>
+       <width>150</width>
+       <height>40</height>
       </rect>
      </property>
      <property name="text">
@@ -636,15 +618,48 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="editerbtn">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>250</y>
-       <width>460</width>
-       <height>50</height>
+       <x>640</x>
+       <y>240</y>
+       <width>150</width>
+       <height>40</height>
       </rect>
      </property>
      <property name="text">
       <string>Editer Livraison</string>
      </property>
+    </widget>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>110</y>
+       <width>631</width>
+       <height>521</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Tab 1</string>
+      </attribute>
+      <widget class="QTableView" name="tab_livraison">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>631</width>
+         <height>501</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Tab 2</string>
+      </attribute>
+     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="page_2">
@@ -987,6 +1002,7 @@ p, li { white-space: pre-wrap; }
      </property>
     </widget>
    </widget>
+   <widget class="QWidget" name="page_5"/>
   </widget>
  </widget>
  <resources/>

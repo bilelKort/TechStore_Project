@@ -5,6 +5,7 @@
 #include <QDialog>
 #include <QMessageBox>
 #include <QString>
+#include <QSqlQueryModel>
 
 class Classlivraison
 {

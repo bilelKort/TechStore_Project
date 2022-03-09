@@ -2,18 +2,44 @@
 #include "ui_livraisondialog.h"
 #include "connection.h"
 #include "classlivraison.h"
+#include <QSqlQueryModel>
+
+
+
 
 livraisonDialog::livraisonDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::livraisonDialog)
 {
     ui->setupUi(this);
+    ui->tab_livraison->setModel(livra.afficher());
 }
 
 livraisonDialog::~livraisonDialog()
 {
     delete ui;
 }
+
+
+void livraisonDialog::on_ajouterbtn_clicked()
+{
+      ui->stackedWidget->setCurrentIndex(1);
+
+}
+
+
+void livraisonDialog::on_editerbtn_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+
+}
+
+void livraisonDialog::on_supprimerbtn_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+
+}
+
 
 void livraisonDialog::on_addbtn_clicked()
 {
@@ -66,21 +92,5 @@ void livraisonDialog::on_suppBtn_clicked()
      }
 }
 
-void livraisonDialog::on_ajouterbtn_clicked()
-{
-      ui->stackedWidget->setCurrentIndex(1);
-
-}
 
 
-void livraisonDialog::on_editerbtn_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(2);
-
-}
-
-void livraisonDialog::on_supprimerbtn_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(3);
-
-}

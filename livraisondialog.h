@@ -4,6 +4,7 @@
 #include "classlivraison.h"
 #include <QtSql>
 #include <QSqlDatabase>
+#include <QSqlQueryModel>
 #include <QDialog>
 #include <QMessageBox>
 #include "ui_livraisondialog.h"
