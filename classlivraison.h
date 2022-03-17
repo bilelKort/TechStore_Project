@@ -22,6 +22,10 @@ public:
     bool modifier(int);
     bool supprimer(int);
     QSqlQueryModel * afficher();
+    QSqlQueryModel * suppcombo();
+    QSqlQueryModel * recherche(QString adresserech);
+    QSqlQueryModel * trie();
+
 };
 
 #endif // CLASSLIVRAISON_H

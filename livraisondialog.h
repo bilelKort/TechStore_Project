@@ -7,6 +7,7 @@
 #include <QSqlQueryModel>
 #include <QDialog>
 #include <QMessageBox>
+#include <QSystemTrayIcon>
 #include "ui_livraisondialog.h"
 #include "connection.h"
 
@@ -29,8 +30,10 @@ private slots:
     void on_editBtn_clicked();
     void on_suppBtn_clicked();
     void on_editerbtn_clicked();
-
     void on_supprimerbtn_clicked();
+    void on_chercherbtn_clicked();
+    void on_tri_clicked();
+    void on_tabWidget_currentChanged(int index);
 
 private:
     Ui::livraisonDialog *ui;

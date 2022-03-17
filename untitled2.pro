@@ -1,6 +1,6 @@
-QT       += core gui sql
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += core gui sql printsupport
+QT += widgets location
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
 
 CONFIG += c++11
 
@@ -13,12 +13,14 @@ SOURCES += \
     connection.cpp \
     livraisondialog.cpp \
     main.cpp \
+    qcustomplot.cpp \
     widget.cpp
 
 HEADERS += \
     classlivraison.h \
     connection.h \
     livraisondialog.h \
+    qcustomplot.h \
     widget.h
 
 FORMS += \
@@ -31,6 +33,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    qml.qrc \
     src.qrc
 
 DISTFILES +=
