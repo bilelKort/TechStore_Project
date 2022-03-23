@@ -28,6 +28,8 @@
 #include <QUrl>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QTcpSocket>
+
 
 livraisonDialog::livraisonDialog(QWidget *parent) :
     QDialog(parent),
@@ -35,9 +37,21 @@ livraisonDialog::livraisonDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->tab_livraison->setModel(livra.afficher());
+    ui->tab_livraison_rech->setModel(livra.afficher());
     ui->suppbox->setModel(livra.suppcombo());
     ui->quickWidget->setSource(QUrl(QStringLiteral("grc:/map.qml")));
     ui->quickWidget->show();
+    mSocket=new QTcpSocket(this);
+    mSocket->connectToHost("localhost",2000);
+    if (mSocket->waitForConnected(3000))
+    {
+        ui->plainTextEdit->appendPlainText("se connecter correctement");
+    }
+    else
+    {
+        ui->plainTextEdit->appendPlainText("pas de connexion");
+    }
+    connect(mSocket,SIGNAL(readyRead()),this,SLOT(leer()));
 }
 
 livraisonDialog::~livraisonDialog()
@@ -73,11 +87,9 @@ void livraisonDialog::on_addbtn_clicked()
     QString adresse =  ui->adresse->text();
     int telLivreur =  ui->telLivreur->text().toInt();
     QString diplome =  ui->diplome->text();
+    int quantite =  ui->quantite->text().toInt();
 
-
-
-
-    Classlivraison liv(cin,nomLivreur,adresse,telLivreur,diplome);
+    Classlivraison liv(cin,nomLivreur,adresse,telLivreur,diplome,quantite);
 
     if(liv.ajouter()){
         QMessageBox::information(this,"Done", "information added");
@@ -95,8 +107,9 @@ void livraisonDialog::on_editBtn_clicked()
     QString adresse =  ui->adresseEdit->text();
     int telLivreur =  ui->telLivreurEdit->text().toInt();
     QString diplome =  ui->diplomeEdit->text();
+    int quantite =  ui->quantiteedit->text().toInt();
 
-    Classlivraison liv(cin,nomLivreur,adresse,telLivreur,diplome);
+    Classlivraison liv(cin,nomLivreur,adresse,telLivreur,diplome,quantite);
     liv.modifier(cin);
 
     if(liv.modifier(cin)){
@@ -163,6 +176,7 @@ void livraisonDialog::on_tabWidget_currentChanged(int index)
      //axe des abscisses
     QVector<double> ticks;
     QVector<QString> labels;
+    livra.statistique(&ticks,&labels);
 
     QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
     textTicker->addTicks(ticks, labels);
@@ -191,5 +205,27 @@ void livraisonDialog::on_tabWidget_currentChanged(int index)
     ui->plot->yAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::SolidLine));
     ui->plot->yAxis->grid()->setSubGridPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
 
+    QVector<double> PlaceData;
+    QSqlQuery q1("select QUANTITE from livraisons");
+    while (q1.next()) {
+                  int  nbr_fautee = q1.value(0).toInt();
+                  PlaceData<< nbr_fautee;
+                    }
+    amande->setData(ticks, PlaceData);
 
+    ui->plot->legend->setVisible(true);
+    ui->plot->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignTop|Qt::AlignHCenter);
+    ui->plot->legend->setBrush(QColor(255, 255, 255, 100));
+    ui->plot->legend->setBorderPen(Qt::NoPen);
+    QFont legendFont = font();
+    legendFont.setPointSize(5);
+    ui->plot->legend->setFont(legendFont);
+    ui->plot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+}
+
+void livraisonDialog::on_CHAT_clicked()
+{
+    mSocket->write(ui->lineEdit->text().toLatin1().data(),ui->lineEdit->text().size());
+    ui->plainTextEdit->appendPlainText(ui->lineEdit->text());
+    ui->lineEdit->clear();
 }

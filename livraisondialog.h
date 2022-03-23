@@ -10,6 +10,7 @@
 #include <QSystemTrayIcon>
 #include "ui_livraisondialog.h"
 #include "connection.h"
+#include <QTcpSocket>
 
 
 namespace Ui {
@@ -35,9 +36,13 @@ private slots:
     void on_tri_clicked();
     void on_tabWidget_currentChanged(int index);
 
+    void on_CHAT_clicked();
+
 private:
     Ui::livraisonDialog *ui;
     Classlivraison livra;
+    QTcpSocket*mSocket;
+
 };
 
 #endif // LIVRAISONDIALOG_H

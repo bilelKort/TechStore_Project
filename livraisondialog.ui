@@ -487,32 +487,6 @@ QScrollBar::sub-page:vertical
     <number>0</number>
    </property>
    <widget class="QWidget" name="page">
-    <widget class="QPushButton" name="Mapbtn">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>340</y>
-       <width>150</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Map des Livraisons</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="ajouterbtn">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>190</y>
-       <width>150</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Ajouter Livraison</string>
-     </property>
-    </widget>
     <widget class="QTextEdit" name="textEdit">
      <property name="geometry">
       <rect>
@@ -537,95 +511,17 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600; font-style:normal; color:#f0e68c; vertical-align:super;&quot;&gt;Express &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600; font-style:normal; color:#f0e68c; vertical-align:sub;&quot;&gt;Delivery&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="tribtn">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>390</y>
-       <width>150</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Trier les Livraisons</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="quitter">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>540</y>
-       <width>150</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Quitter</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="paymentbtn">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>440</y>
-       <width>150</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Payment</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="statbtn">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>490</y>
-       <width>150</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Statistique</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="supprimerbtn">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>290</y>
-       <width>150</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Supprimer Livraison</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="editerbtn">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>240</y>
-       <width>150</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Editer Livraison</string>
-     </property>
-    </widget>
     <widget class="QTabWidget" name="tabWidget">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>110</y>
-       <width>631</width>
+       <width>791</width>
        <height>461</height>
       </rect>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -639,6 +535,110 @@ p, li { white-space: pre-wrap; }
          <width>631</width>
          <height>501</height>
         </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="supprimerbtn">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>110</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Supprimer Livraison</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="Mapbtn">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>160</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Map des Livraisons</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="editerbtn">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>60</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Editer Livraison</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="statbtn">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>320</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Statistique</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="quitter">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>380</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Quitter</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="ajouterbtn">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>10</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Ajouter Livraison</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="tribtn">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>220</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Trier les Livraisons</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="paymentbtn">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>270</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Payment</string>
        </property>
       </widget>
      </widget>
@@ -724,6 +724,36 @@ p, li { white-space: pre-wrap; }
        <property name="resizeMode">
         <enum>QQuickWidget::SizeRootObjectToView</enum>
        </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="title">
+       <string>Page</string>
+      </attribute>
+      <widget class="QWidget" name="gridLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>751</width>
+         <height>421</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="1" column="2">
+         <widget class="QPushButton" name="CHAT">
+          <property name="text">
+           <string>CHAT</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineEdit"/>
+        </item>
+        <item row="0" column="0" colspan="3">
+         <widget class="QPlainTextEdit" name="plainTextEdit"/>
+        </item>
+       </layout>
       </widget>
      </widget>
     </widget>
@@ -828,7 +858,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>420</y>
+        <y>390</y>
         <width>161</width>
         <height>16</height>
        </rect>
@@ -871,7 +901,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>240</x>
-        <y>420</y>
+        <y>390</y>
         <width>220</width>
         <height>30</height>
        </rect>
@@ -888,6 +918,29 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>ADD</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="quantite">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>440</y>
+        <width>221</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>450</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Quantite</string>
       </property>
      </widget>
     </widget>
@@ -979,7 +1032,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>430</y>
+        <y>400</y>
         <width>181</width>
         <height>16</height>
        </rect>
@@ -1022,7 +1075,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>240</x>
-        <y>420</y>
+        <y>390</y>
         <width>220</width>
         <height>30</height>
        </rect>
@@ -1039,6 +1092,29 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>EDIT</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>450</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Quantite </string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="quantiteedit">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>440</y>
+        <width>221</width>
+        <height>31</height>
+       </rect>
       </property>
      </widget>
     </widget>

@@ -15,9 +15,10 @@ class Classlivraison
     QString adresse;
     int telLivreur;
     QString diplome;
+    int quantite;
 
 public:
-    Classlivraison(int cin=0,QString nomLivreur="",QString adresse="",int telLivreur=0,QString diplome="");
+    Classlivraison(int cin=0,QString nomLivreur="",QString adresse="",int telLivreur=0,QString diplome="",int quantite=0);
     bool ajouter();
     bool modifier(int);
     bool supprimer(int);
@@ -25,6 +26,7 @@ public:
     QSqlQueryModel * suppcombo();
     QSqlQueryModel * recherche(QString adresserech);
     QSqlQueryModel * trie();
+    void statistique(QVector<double>* ticks,QVector<QString> *labels);
 
 };
 

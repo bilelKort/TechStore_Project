@@ -3,13 +3,15 @@
 #include <QSqlError>
 #include <QSqlQueryModel>
 #include <QSqlQuery>
+#include <QTcpSocket>
 
-Classlivraison::Classlivraison(int cin,QString nomLivreur,QString adresse,int telLivreur,QString diplome){
+Classlivraison::Classlivraison(int cin,QString nomLivreur,QString adresse,int telLivreur,QString diplome,int quantite){
     this->cin=cin;
     this->nomLivreur=nomLivreur;
     this->adresse=adresse;
     this->telLivreur=telLivreur;
     this->diplome=diplome;
+    this->quantite=quantite;
 }
 
 
@@ -18,8 +20,9 @@ bool Classlivraison::ajouter(){
     QSqlQuery qry;
     QString resc = QString ::number(cin);
     QString rest = QString ::number(telLivreur);
-    qry.prepare("INSERT INTO LIVRAISONS (CIN,NOM_LIVREUR,ADRESSE,TEL_LIVREUR,DIPLOME)"
-                "VALUES (:cin,:nomLivreur,:adresse,:telLivreur,:diplome);"
+    QString resm = QString ::number(quantite);
+    qry.prepare("INSERT INTO LIVRAISONS (CIN,NOM_LIVREUR,ADRESSE,TEL_LIVREUR,DIPLOME,QUANTITE)"
+                "VALUES (:cin,:nomLivreur,:adresse,:telLivreur,:diplome,:quantite);"
                 );
 
     qry.bindValue(":cin",resc);
@@ -27,6 +30,7 @@ bool Classlivraison::ajouter(){
     qry.bindValue(":adresse",adresse);
     qry.bindValue(":telLivreur",rest);
     qry.bindValue(":diplome",diplome);
+    qry.bindValue(":quantite",resm);
 
 
     return qry.exec();
@@ -36,7 +40,7 @@ bool Classlivraison::ajouter(){
 bool Classlivraison::modifier(int idRech){
     QSqlQuery qry;
     QString resc = QString ::number(idRech);
-    qry.prepare("UPDATE LIVRAISONS SET NOM_LIVREUR=:nomLivreur,ADRESSE=:adresse,TEL_LIVREUR=:telLivreur,DIPLOME=:diplome WHERE CIN= :idRech"
+    qry.prepare("UPDATE LIVRAISONS SET NOM_LIVREUR=:nomLivreur,ADRESSE=:adresse,TEL_LIVREUR=:telLivreur,DIPLOME=:diplome,QUANTITE=:quantite WHERE CIN= :idRech"
                 );
 
     qry.bindValue(":idRech",resc);
@@ -44,6 +48,7 @@ bool Classlivraison::modifier(int idRech){
     qry.bindValue(":adresse",adresse);
     qry.bindValue(":telLivreur",telLivreur);
     qry.bindValue(":diplome",diplome);
+    qry.bindValue(":quantite",quantite);
 
     return qry.exec();
 }
@@ -68,6 +73,7 @@ model->setHeaderData(1,Qt::Horizontal,QObject::tr("NOM_LIVREUR"));
 model->setHeaderData(2,Qt::Horizontal,QObject::tr("ADRESSE"));
 model->setHeaderData(3,Qt::Horizontal,QObject::tr("TEL_LIVREUR"));
 model->setHeaderData(4,Qt::Horizontal,QObject::tr("DIPLOME"));
+model->setHeaderData(4,Qt::Horizontal,QObject::tr("QUANTITE"));
 
 return model;
 
@@ -87,10 +93,11 @@ return model;
 QSqlQueryModel * Classlivraison::recherche(QString adresserech)
 {
     QSqlQuery qry;
-    QSqlQueryModel *model=new QSqlQueryModel();
-    qry.prepare("SELECT * FROM LIVRAISONS WHERE adresse =:adresserech");
+    qry.prepare("SELECT * FROM livraisons WHERE adresse like '"+adresserech+"%'");
     qry.bindValue(":adresse",adresserech);
     qry.exec();
+
+    QSqlQueryModel *model=new QSqlQueryModel();
     model->setQuery(qry);
 
 
@@ -106,7 +113,21 @@ QSqlQueryModel * Classlivraison::trie()
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("ADRESSE"));
     model->setHeaderData(3,Qt::Horizontal,QObject::tr("TEL_LIVREUR"));
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("DIPLOME"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("QUANTITE"));
 
     return model;
 }
 
+void Classlivraison::statistique(QVector<double>* ticks,QVector<QString> *labels)
+{
+    QSqlQuery q;
+    int i=0;
+    q.exec("select QUANTITE from livraisons");
+    while (q.next())
+    {
+        QString identifiant = q.value(0).toString();
+        i++;
+        *ticks<<i;
+        *labels <<identifiant;
+    }
+}
