@@ -693,7 +693,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_3">
+     <widget class="QWidget" name="stat">
       <attribute name="title">
        <string>Page</string>
       </attribute>
@@ -726,7 +726,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_5">
+     <widget class="QWidget" name="chat">
       <attribute name="title">
        <string>Page</string>
       </attribute>

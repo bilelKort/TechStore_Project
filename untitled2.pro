@@ -1,6 +1,5 @@
-QT       += core gui sql printsupport
-QT += widgets location network
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
+QT       += core gui sql printsupport widgets location network
+greaterThan(QT_MAJOR_VERSION, 4): QT +=  widgets quickwidgets
 
 CONFIG += c++11
 CONFIG += console
@@ -16,6 +15,8 @@ SOURCES += \
     connection.cpp \
     livraisondialog.cpp \
     main.cpp \
+    map.cpp \
+    produit.cpp \
     qcustomplot.cpp \
     widget.cpp
 
@@ -23,11 +24,14 @@ HEADERS += \
     classlivraison.h \
     connection.h \
     livraisondialog.h \
+    map.h \
+    produit.h \
     qcustomplot.h \
     widget.h
 
 FORMS += \
     livraisondialog.ui \
+    map.ui \
     widget.ui
 
 # Default rules for deployment.

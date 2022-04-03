@@ -1,26 +1,52 @@
 import QtQuick 2.0
-import QtQuick.Window 2.0
 import QtLocation 5.6
 import QtPositioning 5.6
 
-Window {
-    width: 621
-    height: 431
-    visible: true
-   Plugin {
-         id: mapPlugin
+Rectangle {
+    id: window
+
+    property double oldLat: 25.6585
+    property double oldLng: 100.3658
+    property Component comMarker: mapMarker
+
+    Plugin {
+        id: mapPlugin
         name: "osm"
-        PluginParameter { name: "osm.useragent"; value: "My great Qt OSM application" }
-        PluginParameter { name: "osm.mapping.host"; value: "http://osm.tile.server.address/" }
-        PluginParameter { name: "osm.mapping.copyright"; value: "All mine" }
-        PluginParameter { name: "osm.routing.host"; value: "http://osrm.server.address/viaroute" }
-        PluginParameter { name: "osm.geocoding.host"; value: "http://geocoding.server.address" }
+    }
+
     Map {
-         id: mapview
-         anchors.fill: parent
-         plugin: mapPlugin
-         center: QtPositioning.coordinate(25.6585, 125.3658);
-         zoomLevel: 15;
-}
-}
+        id: mapView
+        anchors.fill: parent
+        plugin: mapPlugin
+        center: QtPositioning.coordinate(oldLat, oldLng);
+        zoomLevel: 6
+    }
+
+    function setCenter(lat, lng) {
+        mapView.pan(oldLat - lat, oldLng - lng)
+        oldLat = lat
+        oldLng = lng
+    }
+
+    function addMarker(lat, lng) {
+        var item = comMarker.createObject(window, {
+                                           coordinate: QtPositioning.coordinate(lat, lng)
+                                          })
+        mapView.addMapItem(item)
+    }
+
+    Component {
+        id: mapMarker
+        MapQuickItem {
+            id: markerImg
+            anchorPoint.x: image.width/4
+            anchorPoint.y: image.height
+            coordinate: position
+
+            sourceItem: Image {
+                id: image
+                source: "http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_red.png"
+            }
+        }
+    }
 }

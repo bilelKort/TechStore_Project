@@ -11,7 +11,9 @@
 #include "ui_livraisondialog.h"
 #include "connection.h"
 #include <QTcpSocket>
-
+#include <QVariant>
+#include <QMainWindow>
+#include "map.h"
 
 namespace Ui {
 class livraisonDialog;
@@ -38,11 +40,18 @@ private slots:
 
     void on_CHAT_clicked();
 
+    void on_plot_customContextMenuRequested(const QPoint &pos);
+
+    void on_Mapbtn_clicked();
+
 private:
     Ui::livraisonDialog *ui;
     Classlivraison livra;
     QTcpSocket*mSocket;
-
+    map * m;
+signals:
+    void setCenter(QVariant, QVariant);
+    void addMarker(QVariant, QVariant);
 };
 
 #endif // LIVRAISONDIALOG_H
