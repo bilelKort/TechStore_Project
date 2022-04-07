@@ -1,35 +1,47 @@
-#include "widget.h"
-#include "connection.h"
+#include "mainwindow.h"
+
+#include <QtSql/QtSql>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
 #include <QApplication>
-#include <QMessageBox>
-#include <QtSql>
+#include <QTranslator>
+#include <QInputDialog>
+
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Widget w;
-    connection c;
-
-
-    bool test=c.createconnection();
-    if(test)
+    QTranslator t ;
+    QStringList languages ;
+    languages <<"anglais"<<"french" ;
+    QString lang= QInputDialog::getItem(NULL,"Select Languages","Language",languages) ;
+    if(lang=="anglais")
     {
-        w.show();
-        QMessageBox::information(nullptr, QObject::tr("database is open"),
-                    QObject::tr("connection successful.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-}
-
+        t.load(":/engg.qm") ;
+    }
     else
-        QMessageBox::critical(nullptr, QObject::tr("database is not open"),
-                    QObject::tr("connection failed.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
+    {
+        t.load(":/french.qm") ;
+    }
+
+    /*else
+    {
+    t.load(":/eng.qm") ;
+    }*/
+   if(lang!="english")
+   {
+       a.installTranslator(&t) ;
+   }
 
 
 
+    MainWindow w;
+    w.show();
     return a.exec();
 }
+
+
 
 
 

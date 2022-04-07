@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>anglaiis.qm</file>
+    </qresource>
+</RCC>
