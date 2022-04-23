@@ -7,89 +7,924 @@
     <x>0</x>
     <y>0</y>
     <width>760</width>
-    <height>345</height>
+    <height>459</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Gestion des Clients</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>10</y>
-      <width>321</width>
-      <height>51</height>
+      <x>0</x>
+      <y>0</y>
+      <width>641</width>
+      <height>411</height>
      </rect>
     </property>
-    <property name="html">
-     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:22pt; text-decoration: underline;&quot;&gt;Gestion Fournisseur&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QStackedWidget" name="stackedWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>731</width>
-      <height>231</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">QWidget
+
+{
+
+	background-color: #fff;
+
+	color: red;
+
+
+
+}
+
+
+
+
+
+/*-----QLabel-----*/
+
+QLabel
+
+{
+
+	background-color: transparent;
+
+	color: #454544;
+
+	font-weight: bold;
+
+	font-size: 13px;
+
+
+
+}
+
+
+
+
+
+/*-----QPushButton-----*/
+
+QPushButton
+
+{
+
+	
+
+	background-color: #ff9c2b;
+
+color: #000000;
+
+	font-size: 13px;
+
+	font-weight: bold;
+
+	border-top-right-radius: 15px;
+
+	border-top-left-radius: 0px;
+
+	border-bottom-right-radius: 0px;
+
+	border-bottom-left-radius: 15px;
+
+	padding: 10px;
+
+
+
+}
+
+
+
+
+
+QPushButton::disabled
+
+{
+
+	background-color: #5c5c5c;
+
+
+
+}
+
+
+
+
+
+QPushButton::hover
+
+{	
+
+	background-color: #ff9c2b;
+
+
+
+}
+
+
+
+
+
+QPushButton::pressed
+
+{
+
+	background-color: #3d4ef2;
+
+
+
+}
+
+
+
+
+
+/*-----QCheckBox-----*/
+
+QCheckBox
+
+{
+
+	background-color: transparent;
+
+	color: #5c55e9;
+
+	font-size: 10px;
+
+	font-weight: bold;
+
+	border: none;
+
+	border-radius: 5px;
+
+
+
+}
+
+
+
+
+
+/*-----QCheckBox-----*/
+
+QCheckBox::indicator
+
+{
+
+    background-color: #323232;
+
+    border: 1px solid darkgray;
+
+    width: 12px;
+
+    height: 12px;
+
+
+
+}
+
+
+
+
+
+QCheckBox::indicator:checked
+
+{
+
+    image:url(&quot;./ressources/check.png&quot;);
+
+	background-color: #5c55e9;
+
+    border: 1px solid #5c55e9;
+
+
+
+}
+
+
+
+
+
+QCheckBox::indicator:unchecked:hover
+
+{
+
+    border: 1px solid #5c55e9;
+
+
+
+}
+
+
+
+
+
+QCheckBox::disabled
+
+{
+
+	color: #656565;
+
+
+
+}
+
+
+
+
+
+QCheckBox::indicator:disabled
+
+{
+
+	background-color: #656565;
+
+	color: #656565;
+
+    border: 1px solid #656565;
+
+
+
+}
+
+
+
+
+
+/*-----QLineEdit-----*/
+
+QLineEdit
+
+{
+
+	background-color: #c2c7d5;
+
+	color: #2a547f;
+
+	border: none;
+
+	padding: 5px;
+
+
+
+}
+
+
+
+
+
+/*-----QListView-----*/
+
+QListView
+
+{
+
+	background-color: #5c55e9;
+
+	color: #fff;
+
+	font-size: 14px;
+
+	font-weight: bold;
+
+	show-decoration-selected: 0;
+
+	border-radius: 4px;
+
+	padding-left: -15px;
+
+	padding-right: -15px;
+
+	padding-top: 5px;
+
+
+
+} 
+
+
+
+
+
+QListView:disabled 
+
+{
+
+	background-color: #5c5c5c;
+
+
+
+}
+
+
+
+
+
+QListView::item
+
+{
+
+	background-color: #454e5e;
+
+	border: none;
+
+	padding: 10px;
+
+	border-radius: 0px;
+
+	padding-left : 10px;
+
+	height: 32px;
+
+
+
+}
+
+
+
+
+
+QListView::item:selected
+
+{
+
+	color: #000;
+
+	background-color: #fff;
+
+
+
+}
+
+
+
+
+
+QListView::item:!selected
+
+{
+
+	color:white;
+
+	background-color: transparent;
+
+	border: none;
+
+	padding-left : 10px;
+
+
+
+}
+
+
+
+
+
+QListView::item:!selected:hover
+
+{
+
+	color: #fff;
+
+	background-color: #5564f2;
+
+	border: none;
+
+	padding-left : 10px;
+
+
+
+}
+
+
+
+
+
+/*-----QTreeView-----*/
+
+QTreeView 
+
+{
+
+	background-color: #fff;
+
+	show-decoration-selected: 0;
+
+	color: #454544;
+
+
+
+}
+
+
+
+
+
+QTreeView:disabled
+
+{
+
+	background-color: #242526;
+
+	show-decoration-selected: 0;
+
+
+
+}
+
+
+
+
+
+QTreeView::item 
+
+{
+
+	border-top-color: transparent;
+
+	border-bottom-color: transparent;
+
+
+
+}
+
+
+
+
+
+QTreeView::item:hover 
+
+{
+
+	background-color: #bcbdbb;
+
+	color: #000;
+
+
+
+}
+
+
+
+
+
+QTreeView::item:selected 
+
+{
+
+	background-color: #5c55e9;
+
+	color: #fff;
+
+
+
+}
+
+
+
+
+
+QTreeView::item:selected:active
+
+{
+
+	background-color: #5c55e9;
+
+	color: #fff;
+
+
+
+}
+
+
+
+
+
+QTreeView::item:selected:disabled
+
+{
+
+	background-color: #525251;
+
+	color: #656565;
+
+
+
+}
+
+
+
+
+
+QTreeView::branch:has-children:!has-siblings:closed,
+
+QTreeView::branch:closed:has-children:has-siblings 
+
+{
+
+	image: url(://tree-closed.png);
+
+
+
+}
+
+
+
+QTreeView::branch:open:has-children:!has-siblings,
+
+QTreeView::branch:open:has-children:has-siblings  
+
+{
+
+	image: url(://tree-open.png);
+
+
+
+}
+
+
+
+
+
+/*-----QTableView &amp; QTableWidget-----*/
+
+QTableView
+
+{
+
+    background-color: #fff;
+
+	border: 1px solid gray;
+
+    color: #454544;
+
+    gridline-color: gray;
+
+    outline : 0;
+
+
+
+}
+
+
+
+
+
+QTableView::disabled
+
+{
+
+    background-color: #242526;
+
+    border: 1px solid #32414B;
+
+    color: #656565;
+
+    gridline-color: #656565;
+
+    outline : 0;
+
+
+
+}
+
+
+
+
+
+QTableView::item:hover 
+
+{
+
+    background-color: #bcbdbb;
+
+    color: #000;
+
+
+
+}
+
+
+
+
+
+QTableView::item:selected 
+
+{
+
+	background-color: #5c55e9;
+
+    color: #fff;
+
+
+
+}
+
+
+
+
+
+QTableView::item:selected:disabled
+
+{
+
+    background-color: #1a1b1c;
+
+    border: 2px solid #525251;
+
+    color: #656565;
+
+
+
+}
+
+
+
+
+
+QTableCornerButton::section
+
+{
+
+	background-color: #ced5e3;
+
+	border: none;
+
+    color: #fff;
+
+
+
+}
+
+
+
+
+
+QHeaderView::section
+
+{
+
+	color: #2a547f;
+
+	border: 0px;
+
+	background-color: #ced5e3;
+
+	padding: 5px;
+
+
+
+}
+
+
+
+
+
+QHeaderView::section:disabled
+
+{
+
+    background-color: #525251;
+
+    color: #656565;
+
+
+
+}
+
+
+
+
+
+QHeaderView::section:checked
+
+{
+
+    color: #fff;
+
+    background-color: #5c55e9;
+
+
+
+}
+
+
+
+
+
+QHeaderView::section:checked:disabled
+
+{
+
+    color: #656565;
+
+    background-color: #525251;
+
+
+
+}
+
+
+
+
+
+QHeaderView::section::vertical::first,
+
+QHeaderView::section::vertical::only-one
+
+{
+
+    border-top: 1px solid #353635;
+
+
+
+}
+
+
+
+
+
+QHeaderView::section::vertical
+
+{
+
+    border-top: 1px solid #353635;
+
+
+
+}
+
+
+
+
+
+QHeaderView::section::horizontal::first,
+
+QHeaderView::section::horizontal::only-one
+
+{
+
+    border-left: 1px solid #353635;
+
+
+
+}
+
+
+
+
+
+QHeaderView::section::horizontal
+
+{
+
+    border-left: 1px solid #353635;
+
+
+
+}
+
+
+
+
+
+/*-----QScrollBar-----*/
+
+QScrollBar:horizontal 
+
+{
+
+    background-color: transparent;
+
+    height: 8px;
+
+    margin: 0px;
+
+    padding: 0px;
+
+
+
+}
+
+
+
+
+
+QScrollBar::handle:horizontal 
+
+{
+
+    border: none;
+
+	min-width: 100px;
+
+    background-color: #7e92b7;
+
+
+
+}
+
+
+
+
+
+QScrollBar::add-line:horizontal, 
+
+QScrollBar::sub-line:horizontal,
+
+QScrollBar::add-page:horizontal, 
+
+QScrollBar::sub-page:horizontal 
+
+{
+
+    width: 0px;
+
+    background-color: #d8dce6;
+
+
+
+}
+
+
+
+
+
+QScrollBar:vertical 
+
+{
+
+    background-color: transparent;
+
+    width: 8px;
+
+    margin: 0;
+
+
+
+}
+
+
+
+
+
+QScrollBar::handle:vertical 
+
+{
+
+    border: none;
+
+	min-height: 100px;
+
+    background-color: #7e92b7;
+
+
+
+}
+
+
+
+
+
+QScrollBar::add-line:vertical, 
+
+QScrollBar::sub-line:vertical,
+
+QScrollBar::add-page:vertical, 
+
+QScrollBar::sub-page:vertical 
+
+{
+
+    height: 0px;
+
+    background-color: #d8dce6;
+
+
+
+}
+</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
-    <widget class="QWidget" name="page">
-     <widget class="QPushButton" name="pushButton">
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Ajouter</string>
+     </attribute>
+     <widget class="QLineEdit" name="le_id">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>80</y>
-        <width>211</width>
-        <height>41</height>
+        <x>260</x>
+        <y>30</y>
+        <width>113</width>
+        <height>20</height>
        </rect>
       </property>
-      <property name="text">
-       <string>AJOUTER</string>
-      </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>80</y>
-        <width>211</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>AFFICHER</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="geometry">
-       <rect>
-        <x>650</x>
-        <y>190</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Menu</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="page_2">
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>20</y>
+        <x>160</x>
+        <y>40</y>
         <width>47</width>
         <height>14</height>
        </rect>
@@ -101,7 +936,7 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>26</x>
+        <x>140</x>
         <y>60</y>
         <width>61</width>
         <height>20</height>
@@ -111,11 +946,31 @@ p, li { white-space: pre-wrap; }
        <string>Quantite</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="le_quantite">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>60</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_adresse">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>90</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>26</x>
-        <y>100</y>
+        <x>140</x>
+        <y>90</y>
         <width>61</width>
         <height>20</height>
        </rect>
@@ -127,9 +982,9 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>6</x>
-        <y>130</y>
-        <width>101</width>
+        <x>110</x>
+        <y>120</y>
+        <width>141</width>
         <height>20</height>
        </rect>
       </property>
@@ -137,54 +992,11 @@ p, li { white-space: pre-wrap; }
        <string>Type_marchandise</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>6</x>
-        <y>170</y>
-        <width>81</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Nom_entreprise</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="le_id">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>20</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="le_quantite">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>60</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="le_adresse">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>100</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="le_type_marchandise">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>130</y>
+        <x>260</x>
+        <y>120</y>
         <width>113</width>
         <height>20</height>
        </rect>
@@ -193,112 +1005,112 @@ p, li { white-space: pre-wrap; }
      <widget class="QLineEdit" name="le_nom_entreprise">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>170</y>
+        <x>260</x>
+        <y>150</y>
         <width>113</width>
         <height>20</height>
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>630</x>
+        <x>120</x>
         <y>150</y>
-        <width>75</width>
-        <height>23</height>
+        <width>111</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>Menu</string>
+       <string>Nom_entreprise</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="geometry">
-       <rect>
-        <x>630</x>
-        <y>190</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>AFFICHAGE</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="page_3">
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="pb_ajouter_2">
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>170</y>
-        <width>141</width>
-        <height>31</height>
+        <y>190</y>
+        <width>251</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Supprimer</string>
+       <string>ajouter</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_7">
+     <widget class="QPushButton" name="pb_modi">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>50</y>
-        <width>131</width>
-        <height>31</height>
+        <x>190</x>
+        <y>250</y>
+        <width>251</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
        <string>Modification</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_8">
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Affichage</string>
+     </attribute>
+     <widget class="QTableView" name="tab_Fournisseur">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>50</y>
-        <width>141</width>
+        <x>10</x>
+        <y>30</y>
+        <width>431</width>
+        <height>261</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>300</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Identifion:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_id_supp">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>300</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_supp">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>330</y>
+        <width>91</width>
         <height>31</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Notification mailling</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_9">
-      <property name="geometry">
-       <rect>
-        <x>630</x>
-        <y>180</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="text">
-       <string>Ajouter</string>
+       <string>Supprimer</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_10">
+     <widget class="QPushButton" name="pb_rech">
       <property name="geometry">
        <rect>
-        <x>630</x>
-        <y>150</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Menu</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_11">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>50</y>
-        <width>131</width>
+        <x>210</x>
+        <y>330</y>
+        <width>91</width>
         <height>31</height>
        </rect>
       </property>
@@ -306,43 +1118,43 @@ p, li { white-space: pre-wrap; }
        <string>Recherche</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_12">
+     <widget class="QPushButton" name="pb_pdf">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>170</y>
-        <width>111</width>
+        <x>490</x>
+        <y>190</y>
+        <width>91</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>Imprission(Pdf)</string>
+       <string>Pdf</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_13">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>170</y>
-        <width>131</width>
+        <x>480</x>
+        <y>150</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>calculatrice</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_tri">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>330</y>
+        <width>71</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
        <string>Tri</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_14">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>100</y>
-        <width>201</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>MAP</string>
       </property>
      </widget>
     </widget>
@@ -366,6 +1178,12 @@ p, li { white-space: pre-wrap; }
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menugestion_dde_fournisseur">
+    <property name="title">
+     <string>gestion dde fournisseur</string>
+    </property>
+   </widget>
+   <addaction name="menugestion_dde_fournisseur"/>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
