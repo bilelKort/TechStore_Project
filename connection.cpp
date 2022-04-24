@@ -1,6 +1,6 @@
 #include "connection.h"
 #include<QDebug>
-
+#include "arduino.h"
 connection::connection(){
 
 }
