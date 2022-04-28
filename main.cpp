@@ -3,7 +3,13 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QtSql>
-
+#include "windowemploye.h"
+#include <QtSql/QtSql>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
+#include <QApplication>
+#include <QTranslator>
+#include <QInputDialog>
 
 int main(int argc, char *argv[])
 {
@@ -26,7 +32,31 @@ int main(int argc, char *argv[])
                     QObject::tr("connection failed.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
 
+   QTranslator t ;
+    QStringList languages ;
+    languages <<"anglais"<<"french" ;
+    QString lang= QInputDialog::getItem(NULL,"Select Languages","Language",languages) ;
+    if(lang=="anglais")
+    {
+        t.load(":/enggg.qm") ;
+    }
+    /*else
+    {
+        t.load(":/french.qm") ;
+    }*/
 
+
+   if(lang!="english")
+   {
+       a.installTranslator(&t) ;
+   }
+
+   /*else
+   {
+   t.load(":/eng.qm") ;
+   }*/
+
+    w.show();
 
     return a.exec();
 }

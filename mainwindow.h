@@ -1,37 +1,30 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-
+#include <QDialog>
+#include "arduino.h"
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
 namespace Ui {
-class MainWindow;
+class Mainwindow;
 }
 
-class MainWindow : public QMainWindow
+class Mainwindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-
+    explicit Mainwindow(QWidget *parent = nullptr);
+    ~Mainwindow();
 private slots:
+    void update_label();
     void on_pushButton_clicked();
 
-    void on_pushButton_2_clicked();
-
-    void on_pushButton_5_clicked();
-
-    void on_pushButton_9_clicked();
-
-    void on_pushButton_4_clicked();
-
-    void on_pushButton_10_clicked();
-
-    void on_pb_ajouter_clicked();
-
 private:
-    Ui::MainWindow *ui;
+    Ui::Mainwindow *ui;
+    QByteArray data; // variable contenant les données reçues
+    Arduino A; // objet temporaire
+    int i=1;
 };
 
 #endif // MAINWINDOW_H
